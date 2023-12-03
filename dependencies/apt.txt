@@ -3,4 +3,3 @@ unzip
 tree
 wget
 nano
-emacs
