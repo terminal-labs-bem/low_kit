@@ -1,0 +1,6 @@
+zip
+unzip
+tree
+wget
+nano
+emacs
