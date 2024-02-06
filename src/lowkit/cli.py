@@ -1,6 +1,7 @@
 
 from lowkit.objects import globalconfig
 from lowkit.ops.wd import get_cwd
+from lowkit.initialization.workingset import setup_workingset
 from lowkit.infosources.distribution import info
 from lowkit.settings import VERSION, PROJECT_NAME
 from lowkit.ops.scaffolding import set_global_bracket_data, get_global_bracket_data
@@ -22,28 +23,4 @@ from lowkit.infosources.config import find_config
 
 
 def cli():
-    print("#####")
-    print("name ==")
-    name = get_distribution_name()
-    print(name)
-    print("#####")
-    print("get_distribution_version")
-    print(get_distribution_version(name))
-    print("#####")
-    print("distribution_install_editable")
-    print(distribution_install_editable(name))
-    print("#####")
-    print("call_order")
-    print(call_order())
-    print("#####")
-    print("get_distribution_files")
-    print(get_distribution_files(name))
-    print("#####")
-    print("get_distribution_filepaths")
-    print(get_distribution_filepaths(name))
-    print("#####")
-    print("get_distribution_source")
-    print(get_distribution_source())
-    print(get_distribution_asset_filepath_by_ext("txt"))
-    print(get_cwd())
-    print(find_config(name))
+	setup_workingset()

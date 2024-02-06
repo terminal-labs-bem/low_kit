@@ -16,11 +16,98 @@ from configparser import ConfigParser
 from tempfile import mkstemp
 from shutil import move, copymode
 from os import fdopen, remove
+import os
+import binascii
+import pickle
+import glob
 
 from tempfile import mkstemp
 from shutil import move
 from os import remove
 
+weekdays = ("monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday")
+hours = [
+    (0, "12am"),
+    (1, "1am"),
+    (2, "2am"),
+    (3, "3am"),
+    (4, "4am"),
+    (5, "5am"),
+    (6, "6am"),
+    (7, "7am"),
+    (8, "8am"),
+    (9, "9am"),
+    (10, "10am"),
+    (11, "11am"),
+    (12, "12pm"),
+    (13, "1pm"),
+    (14, "2pm"),
+    (15, "3pm"),
+    (16, "4pm"),
+    (17, "5pm"),
+    (18, "6pm"),
+    (19, "7pm"),
+    (20, "8pm"),
+    (21, "9pm"),
+    (22, "10pm"),
+    (23, "11pm"),
+]
+
+runtimes = []
+
+for weekday in weekdays:
+    for hour in hours:
+        runtimes.append((weekday, hour[1]))
+
+excluded_dirs = [".DS_Store"]
+
+
+def stdio_print(data):
+    if PRINT_VERBOSITY == "high":
+        print(data)
+
+
+def read_file(fname):
+    with open(fname, "rb") as f:
+        content = f.read()
+    return content
+
+
+def write_file(data, path):
+    with open(path, "wb") as the_file:
+        the_file.write(data)
+
+
+def bytes_to_hex_str(data):
+    data = pickle.dumps(data)
+    data = binascii.b2a_hex(data)
+    data = data.decode("utf-8")
+    return data
+
+
+def hex_str_to_bytes(data):
+    data = binascii.a2b_hex(data)
+    data = pickle.loads(data)
+    return data
+
+
+def empty_dir(path):
+    files = glob.glob(path + "/*")
+    for f in files:
+        if os.path.isfile(f):
+            os.remove(f)
+
+
+def ping(host):
+    res = False
+
+    ping_param = "-c 1"
+
+    resultado = os.popen("ping " + ping_param + " " + host).read()
+
+    if "ttl=" in resultado:
+        res = True
+    return res
 
 def _delete_dir(directory):
     directory = abspath(directory)
