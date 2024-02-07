@@ -1,2 +1,0 @@
-renamedirs = [ "[repo]/src/factory",]
-editlines = [ [ "[repo]/Makefile", "APPNAME=\"[oldname]\"", "APPNAME=\"[newname]\"",],]
