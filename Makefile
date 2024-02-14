@@ -1,4 +1,4 @@
-APPNAME="lowkit"
+APPNAME="kitsimple"
 SUDOUSERNAME=$(SUDO_USER)
 CONFIGURATION="default"
 TYPE="python"
