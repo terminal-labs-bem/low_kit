@@ -1,16 +1,16 @@
 [tool.poetry]
-name = "lowkit"
+name = "kitsimple"
 version = "0.0.1"
 description = ""
 authors = ["Michael Verhulst <michael@terminallabs.com>"]
 readme = "README.md"
-packages = [{include = "lowkit", from = "src"}]
+packages = [{include = "kitsimple", from = "src"}]
 
 [tool.poetry.dependencies]
 python = "^3.11"
 
 [tool.poetry.scripts]
-lowkit = 'lowkit.cli:cli'
+kitsimple = 'kitsimple.cli:cli'
 
 [build-system]
 requires = ["poetry-core"]

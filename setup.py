@@ -4,14 +4,14 @@ package_dir = \
 {'': 'src'}
 
 packages = \
-['lowkit']
+['kitsimple']
 
 package_data = \
 {'': ['*']}
 
 setup_kwargs = {
-    'name': 'basekit',
-    'version': '0.1.4',
+    'name': 'kitsimple',
+    'version': '0.0.1',
     'description': '',
     'long_description': '',
     'author': 'Michael Verhulst',
