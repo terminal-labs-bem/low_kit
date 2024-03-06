@@ -10,7 +10,7 @@ packages = [{include = "lowkit", from = "src"}]
 python = "^3.11"
 
 [tool.poetry.scripts]
-lowkit = 'lowkit.cli:cli'
+lowkit = 'lowkit.ux.cli:cli'
 
 [build-system]
 requires = ["poetry-core"]
